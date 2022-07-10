@@ -28,9 +28,18 @@ int main(){
     TUData teste3;
     cout<<"\nTeste Data\n";
     switch(teste3.run()){
-        case TUCodigo::SUCESSO: cout << "SUCESSO" << endl;
+        case TUData::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
-        case TUCodigo::FALHA  : cout << "FALHA" << endl;
+        case TUData::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+
+    TUDescricao teste4;
+    cout<<"\nTeste Descricao\n";
+    switch(teste4.run()){
+        case TUDescricao::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUDescricao::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
 }

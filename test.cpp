@@ -132,3 +132,46 @@ int TUData::run(){
     tearDown();
     return estado;
 }
+
+//------------------------------------------------------------------
+const string TUDescricao::VALOR_VALIDO = "Essa é uma pequena descricao valida";
+const string TUDescricao::VALOR_INVALIDO = "Essa descricao é invalida   ..-------";
+
+void TUDescricao::setUp(){
+    descricao = new Descricao();
+    estado = SUCESSO;
+}
+
+void TUDescricao::tearDown(){
+    delete descricao;
+}
+
+void TUDescricao::testarCenarioSucesso(){
+    try{
+        descricao->setValor(VALOR_VALIDO);
+        if (descricao->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUDescricao::testarCenarioFalha(){
+    try{
+        descricao->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (descricao->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUDescricao::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}

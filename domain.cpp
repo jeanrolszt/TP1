@@ -71,3 +71,25 @@ void Data::setValor(string valor){
     this->valor=valor;
 }
 
+//-----------------------------------------
+void Descricao::validar(string input){
+    if(input.size() <=40){
+        string caracteres_invalidos[] = {" ",".",".",",",";",":","?","!","-"};
+        
+        for(int i=0;i<input.size();i++){
+            if(input[i]==input[i+1]){
+                for(int j=0;j<9;j++){
+                    if(input[i] == caracteres_invalidos[j][0])throw invalid_argument("O argumento eh invalido");
+                }
+            }
+        }
+
+    }
+    else throw invalid_argument("O argumento eh invalido");
+}
+
+void Descricao::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+
