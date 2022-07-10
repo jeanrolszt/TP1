@@ -3,7 +3,7 @@
 ## Lista de domínios implementados
 
 - [x] Cidade
-- [ ] Código
+- [x] Código
 - [ ] Data
 - [ ] Descrição
 - [ ] Email
