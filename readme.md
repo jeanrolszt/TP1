@@ -4,7 +4,7 @@
 
 - [x] Cidade
 - [x] Código
-- [ ] Data
+- [x] Data
 - [ ] Descrição
 - [ ] Email
 - [ ] Idioma

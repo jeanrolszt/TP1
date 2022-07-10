@@ -89,3 +89,46 @@ int TUCodigo::run(){
     tearDown();
     return estado;
 }
+
+//------------------------------------------------------------------
+const string TUData::VALOR_VALIDO = "21/Dez";
+const string TUData::VALOR_INVALIDO = "21//Sa";
+
+void TUData::setUp(){
+    data = new Data();
+    estado = SUCESSO;
+}
+
+void TUData::tearDown(){
+    delete data;
+}
+
+void TUData::testarCenarioSucesso(){
+    try{
+        data->setValor(VALOR_VALIDO);
+        if (data->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUData::testarCenarioFalha(){
+    try{
+        data->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (data->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUData::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}

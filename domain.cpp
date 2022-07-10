@@ -1,5 +1,7 @@
 #include "domain.h"
 #include <iostream>
+#include <string>
+
 
 using namespace std;
 
@@ -21,8 +23,9 @@ void Cidade::setValor(string valor){
     validar(valor);
     this->valor=valor;
 }
-//-----------------------------------------
 
+
+//-----------------------------------------
 void Codigo::validar(string input){
     if(input.size() == 11){
         int sum = 0;
@@ -37,6 +40,33 @@ void Codigo::validar(string input){
 }
 
 void Codigo::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+
+
+//-----------------------------------------
+void Data::validar(string input){
+    if(input.size() == 6){
+        string dd = input.substr(0,2);
+        int dia = stoi(dd);
+        if(!(dia>0&&dia<=31))throw invalid_argument("O argumento eh invalido");
+        std::string meses[] = {"Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"};
+        string mes = input.substr(3,3);
+        bool valido=false;
+        for(int i=0;i<12;i++){
+            if(meses[i]==mes){
+                valido=true;
+                break;
+            }
+        }
+        if(!valido)throw invalid_argument("O argumento eh invalido");
+
+    }
+    else throw invalid_argument("O argumento eh invalido");
+}
+
+void Data::setValor(string valor){
     validar(valor);
     this->valor=valor;
 }

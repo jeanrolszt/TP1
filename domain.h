@@ -69,4 +69,21 @@ inline string Codigo::getValor() const{
     return valor;
 }
 
+//--------------------------------------------
+//DD/MES
+
+
+class Data{
+    private:
+        string valor;
+        void validar(string);
+    public:
+        void setValor(string);
+        string getValor() const;
+};
+
+inline string Data::getValor() const{
+    return valor;
+}
+
 #endif
