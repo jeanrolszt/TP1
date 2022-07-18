@@ -42,4 +42,20 @@ int main(){
         case TUDescricao::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+    TUIdioma teste5;
+    cout<<"\nTeste Idioma\n";
+    switch(teste5.run()){
+        case TUIdioma::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUIdioma::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+    TUPais teste6;
+    cout<<"\nTeste Pais\n";
+    switch(teste6.run()){
+        case TUPais::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUPais::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
 }

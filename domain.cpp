@@ -93,3 +93,55 @@ void Descricao::setValor(string valor){
     this->valor=valor;
 }
 
+// //-----------------------------------------
+// void Email::validar(string input){
+//     string parte_local = 
+// }
+
+// void Email::setValor(string valor){
+//     validar(valor);
+//     this->valor=valor;
+// }
+
+
+//-----------------------------------------
+void Idioma::validar(string input){
+    std::string idiomas[]= {"Ingles", "Chines Mandarim", "Hindi", "Espanhol", "Frances", "Arabe", "Bengali", "Russo", "Portugues", "Indonesio"};
+    bool valido = false;
+    int tamanhoIdiomas = sizeof(idiomas)/sizeof(idiomas[0]);
+    for(int i=0;i<tamanhoIdiomas;i++){
+        if(idiomas[i]==input){
+            valido=true;
+            break;
+        }
+    }
+    if(!valido) throw invalid_argument("O argumento eh invalido");
+}
+
+void Idioma::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+
+
+
+
+//-----------------------------------------
+void Pais::validar(string input){
+    std::string pais[]= {"Estados Unidos", "Brasil", "China", "Coreia do Sul", "Emirados", "França", "India", "Japao", "Malasia", "Reino Unido", "Tailandia", "Turquia"};
+    bool valido = false;
+    int tamanhoPais = sizeof(pais)/sizeof(pais[0]);
+    for(int i=0;i<tamanhoPais;i++){
+        if(pais[i]==input){
+            valido=true;
+            break;
+        }
+    }
+    if(!valido) throw invalid_argument("O argumento eh invalido");
+}
+
+void Pais::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+

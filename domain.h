@@ -103,4 +103,70 @@ inline string Descricao::getValor() const{
     return valor;
 }
 
+//--------------------------------------------
+//
+
+
+// class Email{
+//     private:
+//         string valor;
+//         void validar(string);
+//     public:
+//         void setValor(string);
+//         string getValor() const;
+// };
+
+// inline string Email::getValor() const{
+//     return valor;
+// }
+
+class Idioma {
+    private:
+        string valor;                      // Atributo para armazenar valor.
+        void validar(string);              // Método para validar valor.
+    public:
+
+        ///Armazena a Idioma caso a mesma for válida.
+        ///Lança uma exeção caso a idioma não seja válida.
+        ///@param valor Idioma
+        ///@throw invalid_argument
+        void setValor(string);             // Método para atribuir valor.
+
+        ///Retorna o nome da Idioma.
+        ///
+        ///@return Idioma
+        string getValor() const;           // Método para recuperar valor.
+};
+
+inline string Idioma::getValor() const{
+    return valor;
+}
+
+
+
+
+class Pais {
+    private:
+        string valor;                      // Atributo para armazenar valor.
+        void validar(string);              // Método para validar valor.
+    public:
+
+        ///Armazena a Pais caso a mesma for válida.
+        ///Lança uma exeção caso a pais não seja válida.
+        ///@param valor Pais
+        ///@throw invalid_argument
+        void setValor(string);             // Método para atribuir valor.
+
+        ///Retorna o nome da Pais.
+        ///
+        ///@return Pais
+        string getValor() const;           // Método para recuperar valor.
+};
+
+inline string Pais::getValor() const{
+    return valor;
+}
+
+
+
 #endif

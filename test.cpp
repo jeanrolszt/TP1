@@ -175,3 +175,97 @@ int TUDescricao::run(){
     tearDown();
     return estado;
 }
+
+
+
+const string TUIdioma::VALOR_VALIDO = "Chines Mandarim";
+const string TUIdioma::VALOR_INVALIDO = "Brasilia";
+
+void TUIdioma::setUp(){
+    idioma = new Idioma();
+    estado = SUCESSO;
+}
+
+void TUIdioma::tearDown(){
+    delete idioma;
+}
+
+void TUIdioma::testarCenarioSucesso(){
+    try{
+        idioma->setValor(VALOR_VALIDO);
+        if (idioma->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUIdioma::testarCenarioFalha(){
+    try{
+        idioma->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (idioma->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUIdioma::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+
+
+
+
+
+
+
+
+const string TUPais::VALOR_VALIDO = "Coreia do Sul";
+const string TUPais::VALOR_INVALIDO = "Brasilia";
+
+void TUPais::setUp(){
+    pais = new Pais();
+    estado = SUCESSO;
+}
+
+void TUPais::tearDown(){
+    delete pais;
+}
+
+void TUPais::testarCenarioSucesso(){
+    try{
+        pais->setValor(VALOR_VALIDO);
+        if (pais->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUPais::testarCenarioFalha(){
+    try{
+        pais->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (pais->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUPais::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
