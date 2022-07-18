@@ -143,7 +143,7 @@ inline string Idioma::getValor() const{
 }
 
 
-
+//--------------------------------------------
 
 class Pais {
     private:
@@ -167,6 +167,30 @@ inline string Pais::getValor() const{
     return valor;
 }
 
+
+
+//--------------------------------------------
+class Nota {
+    private:
+        string valor;                      // Atributo para armazenar valor.
+        void validar(string);              // Método para validar valor.
+    public:
+
+        ///Armazena a Nota caso a mesma for válida.
+        ///Lança uma exeção caso a Nota não seja válida.
+        ///@param valor Nota
+        ///@throw invalid_argument
+        void setValor(string);             // Método para atribuir valor.
+
+        ///Retorna o nome da Nota.
+        ///
+        ///@return Nota
+        string getValor() const;           // Método para recuperar valor.
+};
+
+inline string Nota::getValor() const{
+    return valor;
+}
 
 
 #endif

@@ -58,4 +58,12 @@ int main(){
         case TUPais::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+    TUNota teste7;
+    cout<<"\nTeste Nota\n";
+    switch(teste7.run()){
+        case TUNota::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUNota::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
 }

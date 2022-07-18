@@ -269,3 +269,48 @@ int TUPais::run(){
     tearDown();
     return estado;
 }
+
+
+
+
+const string TUNota::VALOR_VALIDO = "5";
+const string TUNota::VALOR_INVALIDO = "11";
+
+void TUNota::setUp(){
+    nota = new Nota();
+    estado = SUCESSO;
+}
+
+void TUNota::tearDown(){
+    delete nota;
+}
+
+void TUNota::testarCenarioSucesso(){
+    try{
+        nota->setValor(VALOR_VALIDO);
+        if (nota->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUNota::testarCenarioFalha(){
+    try{
+        nota->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (nota->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUNota::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}

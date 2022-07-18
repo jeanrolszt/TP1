@@ -145,3 +145,15 @@ void Pais::setValor(string valor){
     this->valor=valor;
 }
 
+
+//-----------------------------------------
+void Nota::validar(string input){
+    int nota = stoi(input);
+    if(!(nota>=0&&nota<=10))throw invalid_argument("O argumento eh invalido");
+}
+
+void Nota::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+
