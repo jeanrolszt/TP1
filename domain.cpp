@@ -73,13 +73,14 @@ void Data::setValor(string valor){
 
 //-----------------------------------------
 void Descricao::validar(string input){
-    if(input.size() <=40){
-        string caracteres_invalidos[] = {" ",".",".",",",";",":","?","!","-"};
-        
+        if(input.size() <=40){
+        string caracteres_invalidos[] = {".",".",",",";",":","?","!","-"};
+        string espaco = " ";
         for(int i=0;i<input.size();i++){
-            if(input[i]==input[i+1]){
-                for(int j=0;j<9;j++){
-                    if(input[i] == caracteres_invalidos[j][0])throw invalid_argument("O argumento eh invalido");
+            if(input[i]==espaco[0]&&input[i+1]==espaco[0])throw invalid_argument("O argumento eh invalido");
+            for(int j=0;j<8;j++){
+                for(int k=0;k<8;k++){
+                    if(input[i] == caracteres_invalidos[j][0]&&input[i+1] == caracteres_invalidos[k][0])throw invalid_argument("O argumento eh invalido");
                 }
             }
         }
