@@ -109,4 +109,71 @@ inline Descricao Hospedagem::getDescricao() const{
     return descricao;
 }
 
+
+//-------------------------------------------
+
+class Usuario {
+    private:
+            Nome nome;                   // Declarar cada atributo da classe.
+            Email email;                   // Declarar cada atributo da classe.
+            Senha senha;
+            Idioma idioma;
+            Data aniversario;
+    public:
+            void setNome(const Nome&);   // Declarar método set para cada atributo.
+            Nome getNome() const;        // Declarar método get para cada atributo.
+
+            void setEmail(const Email&);   // Declarar método set para cada atributo.
+            Email getEmail() const;        // Declarar método get para cada atributo.
+
+            void setSenha(const Senha&);   // Declarar método set para cada atributo.
+            Senha getSenha() const;        // Declarar método get para cada atributo.
+
+            void setIdioma(const Idioma&);   // Declarar método set para cada atributo.
+            Idioma getIdioma() const;        // Declarar método get para cada atributo.
+            
+            void setAniversario(const Data&);   // Declarar método set para cada atributo.
+            Data getAniversario() const;        // Declarar método get para cada atributo.
+};
+
+inline void Usuario::setNome(const Nome &nome){
+    this->nome = nome;
+}
+
+inline Nome Usuario::getNome() const{
+    return nome;
+}
+
+inline void Usuario::setEmail(const Email &email){
+    this->email = email;
+}
+
+inline Email Usuario::getEmail() const{
+    return email;
+}
+
+inline void Usuario::setSenha(const Senha &senha){
+    this->senha = senha;
+}
+
+inline Senha Usuario::getSenha() const{
+    return senha;
+}
+
+inline void Usuario::setIdioma(const Idioma &idioma){
+    this->idioma = idioma;
+}
+
+inline Idioma Usuario::getIdioma() const{
+    return idioma;
+}
+
+inline void Usuario::setAniversario(const Data &aniversario){
+    this->aniversario = aniversario;
+}
+
+inline Data Usuario::getAniversario() const{
+    return aniversario;
+}
+
 #endif
