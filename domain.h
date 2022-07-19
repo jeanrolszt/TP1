@@ -107,18 +107,22 @@ inline string Descricao::getValor() const{
 //
 
 
-// class Email{
-//     private:
-//         string valor;
-//         void validar(string);
-//     public:
-//         void setValor(string);
-//         string getValor() const;
-// };
+class Email{
+    private:
+        string valor;
+        void validar(string);
+    public:
+        void setValor(string);
+        string getValor() const;
+};
 
-// inline string Email::getValor() const{
-//     return valor;
-// }
+inline string Email::getValor() const{
+    return valor;
+}
+
+//--------------------------------------------
+//
+
 
 class Idioma {
     private:
@@ -189,6 +193,30 @@ class Nota {
 };
 
 inline string Nota::getValor() const{
+    return valor;
+}
+
+
+//--------------------------------------------
+class Senha {
+    private:
+        string valor;                      // Atributo para armazenar valor.
+        void validar(string);              // Método para validar valor.
+    public:
+
+        ///Armazena a Senha caso a mesma for válida.
+        ///Lança uma exeção caso a Senha não seja válida.
+        ///@param valor Senha
+        ///@throw invalid_argument
+        void setValor(string);             // Método para atribuir valor.
+
+        ///Retorna o nome da Senha.
+        ///
+        ///@return Senha
+        string getValor() const;           // Método para recuperar valor.
+};
+
+inline string Senha::getValor() const{
     return valor;
 }
 

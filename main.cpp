@@ -66,4 +66,20 @@ int main(){
         case TUNota::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+    TUEmail teste8;
+    cout<<"\nTeste Email\n";
+    switch(teste8.run()){
+        case TUEmail::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUEmail::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+    TUSenha teste9;
+    cout<<"\nTeste Senha\n";
+    switch(teste9.run()){
+        case TUSenha::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUSenha::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
 }

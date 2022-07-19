@@ -5,10 +5,10 @@
 - [x] Cidade
 - [x] Código
 - [x] Data
-- [ ] Descrição
-- [ ] Email
+- [x] Descrição
+- [x] Email
 - [x] Idioma
 - [ ] Nome
 - [x] Nota
 - [x] País
-- [ ] Senha
+- [x] Senha

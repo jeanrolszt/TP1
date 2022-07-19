@@ -314,3 +314,87 @@ int TUNota::run(){
     tearDown();
     return estado;
 }
+
+const string TUEmail::VALOR_VALIDO = "jeanrolszt@gmail.com";
+const string TUEmail::VALOR_INVALIDO = "jean.rolszr@.dasdasdasd.comomom.masmd..";
+
+void TUEmail::setUp(){
+    email = new Email();
+    estado = SUCESSO;
+}
+
+void TUEmail::tearDown(){
+    delete email;
+}
+
+void TUEmail::testarCenarioSucesso(){
+    try{
+        email->setValor(VALOR_VALIDO);
+        if (email->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUEmail::testarCenarioFalha(){
+    try{
+        email->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUEmail::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+const string TUSenha::VALOR_VALIDO = "XCa!1";
+const string TUSenha::VALOR_INVALIDO = "@as!1";
+
+void TUSenha::setUp(){
+    senha = new Senha();
+    estado = SUCESSO;
+}
+
+void TUSenha::tearDown(){
+    delete senha;
+}
+
+void TUSenha::testarCenarioSucesso(){
+    try{
+        senha->setValor(VALOR_VALIDO);
+        if (senha->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUSenha::testarCenarioFalha(){
+    try{
+        senha->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (senha->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUSenha::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}

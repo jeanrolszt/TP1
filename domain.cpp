@@ -75,9 +75,8 @@ void Data::setValor(string valor){
 void Descricao::validar(string input){
         if(input.size() <=40){
         string caracteres_invalidos[] = {".",".",",",";",":","?","!","-"};
-        string espaco = " ";
         for(int i=0;i<input.size();i++){
-            if(input[i]==espaco[0]&&input[i+1]==espaco[0])throw invalid_argument("O argumento eh invalido");
+            if(input[i]==' '&&input[i+1]==' ')throw invalid_argument("O argumento eh invalido");
             for(int j=0;j<8;j++){
                 for(int k=0;k<8;k++){
                     if(input[i] == caracteres_invalidos[j][0]&&input[i+1] == caracteres_invalidos[k][0])throw invalid_argument("O argumento eh invalido");
@@ -94,15 +93,46 @@ void Descricao::setValor(string valor){
     this->valor=valor;
 }
 
-// //-----------------------------------------
-// void Email::validar(string input){
-//     string parte_local = 
-// }
+//-----------------------------------------
+void Email::validar(string input){
+    size_t arroba = input.find("@");
+    string parte_local = "";
+    string dominio = "";
+    if(arroba != string::npos){
+        parte_local = input.substr(0,arroba);
+        dominio = input.substr(arroba+1);
+        if(parte_local.length()>64||parte_local[0]=='.') throw invalid_argument("O argumento eh invalido");
+        for(int i=0;i<parte_local.length();i++){
+            if((parte_local[i]>=65&&parte_local[i]<=90)||(parte_local[i]>=97&&parte_local[i]<=122)||(parte_local[i]>=48&&parte_local[i]<=57)){
+                // ok
+            }
+            else if((parte_local[i]=='-'||parte_local[i]=='_'||parte_local[i]=='.')&&((parte_local[i+1]>=65&&parte_local[i+1]<=90)||(parte_local[i+1]>=97&&parte_local[i+1]<=122)||(parte_local[i+1]>=48&&parte_local[i+1]<=57))){
+                i++;
+                // ok
+            }else throw invalid_argument("O argumento eh invalido");
+        }
+        if(dominio[0]=='.')throw invalid_argument("O argumento eh invalido");
+        int count = 0;
+        for(int i=1;i<dominio.length();i++){
+            if(count>63)throw invalid_argument("O argumento eh invalido");
+            if((dominio[i]>='a'&&dominio[i]<='z')||(dominio[i]>='A'&&dominio[i]<='Z')||(dominio[i]>='0'&&dominio[i]<='9')){
+                // ok
+            } else if(!((dominio[i]=='-')&&(dominio[i-1]=='.'||dominio[i+1]=='.'))){
+                //ok
+            }else throw invalid_argument("O argumento eh invalido");
+            count++;
+            if(dominio[i]=='.')count=0;
+        }
+        
+    }
+    else throw invalid_argument("O argumento eh invalido");
 
-// void Email::setValor(string valor){
-//     validar(valor);
-//     this->valor=valor;
-// }
+}
+
+void Email::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
 
 
 //-----------------------------------------
@@ -154,6 +184,28 @@ void Nota::validar(string input){
 }
 
 void Nota::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+
+
+//-----------------------------------------
+void Senha::validar(string input){
+    if(input.length()==5){
+        bool letra = false;
+        bool numero = false;
+        bool especial = false;
+        for(int i=0;i<input.length();i++){
+            if((input[i]>='a'&&input[i]<='z')||(input[i]>='A'&&input[i]<='Z'))letra = true;
+            else if(input[i]>='0'&&input[i]<='9') numero = true;
+            else if(input[i]=='!'||input[i]=='#'||input[i]=='$'||input[i]=='%'||input[i]=='&') especial=true;
+            else throw invalid_argument("O argumento eh invalido");
+        }
+        if(!(letra&&numero&&especial))throw invalid_argument("O argumento eh invalido");
+    }else throw invalid_argument("O argumento eh invalido");
+}
+
+void Senha::setValor(string valor){
     validar(valor);
     this->valor=valor;
 }
