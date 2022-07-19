@@ -82,4 +82,12 @@ int main(){
         case TUSenha::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+    TUNome teste10;
+    cout<<"\nTeste Nome\n";
+    switch(teste10.run()){
+        case TUNome::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUNome::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
 }

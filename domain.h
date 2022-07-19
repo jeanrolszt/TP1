@@ -221,4 +221,28 @@ inline string Senha::getValor() const{
 }
 
 
+//--------------------------------------------
+class Nome {
+    private:
+        string valor;                      // Atributo para armazenar valor.
+        void validar(string);              // Método para validar valor.
+    public:
+
+        ///Armazena a Nome caso a mesma for válida.
+        ///Lança uma exeção caso a Nome não seja válida.
+        ///@param valor Nome
+        ///@throw invalid_argument
+        void setValor(string);             // Método para atribuir valor.
+
+        ///Retorna o nome da Nome.
+        ///
+        ///@return Nome
+        string getValor() const;           // Método para recuperar valor.
+};
+
+inline string Nome::getValor() const{
+    return valor;
+}
+
+
 #endif

@@ -210,3 +210,31 @@ void Senha::setValor(string valor){
     this->valor=valor;
 }
 
+
+//-----------------------------------------
+void Nome::validar(string input){
+    if(input.length()<30){
+        bool primeiro = true;
+        for(int i=0;i<input.length();i++){
+            if(!((input[i]>='A'&&input[i]<='Z')||(input[i]>='a'&&input[i]<='z')||(input[i]==' ')))throw invalid_argument("O argumento eh invalido");
+            if(primeiro){
+                if(input[i]>='A'&&input[i]<='Z')primeiro=false;
+                else throw invalid_argument("O argumento eh invalido");
+            }else{
+                if(input[i]==' '){
+                    if(input[i+1]==' ')throw invalid_argument("O argumento eh invalido");
+                    else primeiro=true;
+                }else primeiro=false;
+                if(!primeiro){
+                    if(!(input[i]>='a'&&input[i]<='z'))throw invalid_argument("O argumento eh invalido");
+                }
+            }
+        }
+    }else throw invalid_argument("O argumento eh invalido");
+}
+
+void Nome::setValor(string valor){
+    validar(valor);
+    this->valor=valor;
+}
+

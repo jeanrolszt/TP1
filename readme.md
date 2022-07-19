@@ -8,7 +8,7 @@
 - [x] Descrição
 - [x] Email
 - [x] Idioma
-- [ ] Nome
+- [x] Nome
 - [x] Nota
 - [x] País
 - [x] Senha
