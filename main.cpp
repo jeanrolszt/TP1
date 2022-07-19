@@ -8,7 +8,7 @@ using namespace std;
 int main(){
 
     TUCidade teste1;
-    cout<<"\nTeste Cidade\n";
+    cout<<"\nTESTE DOMINIO Cidade\n";
     switch(teste1.run()){
         case TUCidade::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -17,7 +17,7 @@ int main(){
     }
 
     TUCodigo teste2;
-    cout<<"\nTeste Codigo\n";
+    cout<<"\nTESTE DOMINIO Codigo\n";
     switch(teste2.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -26,7 +26,7 @@ int main(){
     }
 
     TUData teste3;
-    cout<<"\nTeste Data\n";
+    cout<<"\nTESTE DOMINIO Data\n";
     switch(teste3.run()){
         case TUData::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -35,7 +35,7 @@ int main(){
     }
 
     TUDescricao teste4;
-    cout<<"\nTeste Descricao\n";
+    cout<<"\nTESTE DOMINIO Descricao\n";
     switch(teste4.run()){
         case TUDescricao::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -43,7 +43,7 @@ int main(){
                                 break;
     }
     TUIdioma teste5;
-    cout<<"\nTeste Idioma\n";
+    cout<<"\nTESTE DOMINIO Idioma\n";
     switch(teste5.run()){
         case TUIdioma::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -51,7 +51,7 @@ int main(){
                                 break;
     }
     TUPais teste6;
-    cout<<"\nTeste Pais\n";
+    cout<<"\nTESTE DOMINIO Pais\n";
     switch(teste6.run()){
         case TUPais::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -59,7 +59,7 @@ int main(){
                                 break;
     }
     TUNota teste7;
-    cout<<"\nTeste Nota\n";
+    cout<<"\nTESTE DOMINIO Nota\n";
     switch(teste7.run()){
         case TUNota::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -67,7 +67,7 @@ int main(){
                                 break;
     }
     TUEmail teste8;
-    cout<<"\nTeste Email\n";
+    cout<<"\nTESTE DOMINIO Email\n";
     switch(teste8.run()){
         case TUEmail::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
@@ -75,19 +75,37 @@ int main(){
                                 break;
     }
     TUSenha teste9;
-    cout<<"\nTeste Senha\n";
+    cout<<"\nTESTE DOMINIO Senha\n";
     switch(teste9.run()){
         case TUSenha::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
         case TUSenha::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+
     TUNome teste10;
-    cout<<"\nTeste Nome\n";
+    cout<<"\nTESTE DOMINIO Nome\n";
     switch(teste10.run()){
         case TUNome::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
         case TUNome::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
+
+
+
+    //Testes de unidade de entidades
+
+    TUAvaliacao testeA;
+
+    // Invocar método e apresentar mensagem acerca do resultado do teste.
+    cout<<"\nTESTE ENTIDADE Avaliacao\n";
+    switch(testeA.run()){
+        case TUAvaliacao::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUAvaliacao::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+
+    return 0;
 }

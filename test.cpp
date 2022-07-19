@@ -440,3 +440,47 @@ int TUNome::run(){
     tearDown();
     return estado;
 }
+
+
+
+// Implementação das unidades de testes de entidades
+
+const string TUAvaliacao::VALOR_VALIDO_CODIGO = "12345678911";
+const string TUAvaliacao::VALOR_VALIDO_NOTA = "5";
+const string TUAvaliacao::VALOR_VALIDO_DESCRICAO = "Isso e uma descricao valida.";
+
+void TUAvaliacao::setUp(){
+    avaliacao = new Avaliacao();
+    estado = SUCESSO;
+}
+
+void TUAvaliacao::tearDown(){
+    delete avaliacao;
+}
+
+void TUAvaliacao::testarCenarioSucesso(){
+    Codigo codigo;
+    codigo.setValor(VALOR_VALIDO_CODIGO);
+    avaliacao->setCodigo(codigo);
+    if(avaliacao->getCodigo().getValor() != VALOR_VALIDO_CODIGO)
+        estado = FALHA;
+
+    Nota nota;
+    nota.setValor(VALOR_VALIDO_NOTA);
+    avaliacao->setNota(nota);
+    if(avaliacao->getNota().getValor() != VALOR_VALIDO_NOTA)
+        estado = FALHA;
+
+    Descricao descricao;
+    descricao.setValor(VALOR_VALIDO_DESCRICAO);
+    avaliacao->setDescricao(descricao);
+    if(avaliacao->getDescricao().getValor() != VALOR_VALIDO_DESCRICAO)
+        estado = FALHA;
+}
+
+int TUAvaliacao::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
