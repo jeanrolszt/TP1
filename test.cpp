@@ -515,9 +515,9 @@ void TUHospedagem::testarCenarioSucesso(){
     if(hospedaem->getCidade().getValor() != VALOR_VALIDO_CIDADE)
         estado = FALHA;
 
-    Pais Pais;
-    Pais.setValor(VALOR_VALIDO_PAIS);
-    hospedaem->setPais(Pais);
+    Pais pais;
+    pais.setValor(VALOR_VALIDO_PAIS);
+    hospedaem->setPais(pais);
     if(hospedaem->getPais().getValor() != VALOR_VALIDO_PAIS)
         estado = FALHA;
 
@@ -535,6 +535,69 @@ void TUHospedagem::testarCenarioSucesso(){
 }
 
 int TUHospedagem::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
+
+
+
+const string TUUsuario::VALOR_VALIDO_NOME = "Jean Rolszt";
+const string TUUsuario::VALOR_VALIDO_EMAIL = "jeanrolszr@gmail.com";
+const string TUUsuario::VALOR_VALIDO_SENHA = "XCa!1";
+const string TUUsuario::VALOR_VALIDO_IDIOMA = "Ingles";
+const string TUUsuario::VALOR_VALIDO_DATA = "24/Dez";
+const string TUUsuario::VALOR_VALIDO_DESCRICAO = "Isso e uma descricao valida.";
+
+void TUUsuario::setUp(){
+    usuario = new Usuario();
+    estado = SUCESSO;
+}
+
+void TUUsuario::tearDown(){
+    delete usuario;
+}
+
+void TUUsuario::testarCenarioSucesso(){
+    Nome nome;
+    nome.setValor(VALOR_VALIDO_NOME);
+    usuario->setNome(nome);
+    if(usuario->getNome().getValor() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+
+    Email email;
+    email.setValor(VALOR_VALIDO_EMAIL);
+    usuario->setEmail(email);
+    if(usuario->getEmail().getValor() != VALOR_VALIDO_EMAIL)
+        estado = FALHA;
+
+    Senha senha;
+    senha.setValor(VALOR_VALIDO_SENHA);
+    usuario->setSenha(senha);
+    if(usuario->getSenha().getValor() != VALOR_VALIDO_SENHA)
+        estado = FALHA;
+
+    Idioma idioma;
+    idioma.setValor(VALOR_VALIDO_IDIOMA);
+    usuario->setIdioma(idioma);
+    if(usuario->getIdioma().getValor() != VALOR_VALIDO_IDIOMA)
+        estado = FALHA;
+
+    Data aniversario;
+    aniversario.setValor(VALOR_VALIDO_DATA);
+    usuario->setAniversario(aniversario);
+    if(usuario->getAniversario().getValor() != VALOR_VALIDO_DATA)
+        estado = FALHA;
+    
+    Descricao descricao;
+    descricao.setValor(VALOR_VALIDO_DESCRICAO);
+    usuario->setDescricao(descricao);
+    if(usuario->getDescricao().getValor() != VALOR_VALIDO_DESCRICAO)
+        estado = FALHA;
+}
+
+int TUUsuario::run(){
     setUp();
     testarCenarioSucesso();
     tearDown();

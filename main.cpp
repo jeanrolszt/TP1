@@ -114,4 +114,13 @@ int main(){
                                 break;
     }
 
+    TUUsuario testeC;
+    cout<<"\nTESTE ENTIDADE Usuario\n";
+    switch(testeC.run()){
+        case TUUsuario::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUUsuario::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+
 }

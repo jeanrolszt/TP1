@@ -119,6 +119,7 @@ class Usuario {
             Senha senha;
             Idioma idioma;
             Data aniversario;
+            Descricao descricao;
     public:
             void setNome(const Nome&);   // Declarar método set para cada atributo.
             Nome getNome() const;        // Declarar método get para cada atributo.
@@ -134,6 +135,9 @@ class Usuario {
             
             void setAniversario(const Data&);   // Declarar método set para cada atributo.
             Data getAniversario() const;        // Declarar método get para cada atributo.
+
+            void setDescricao(const Descricao&);   // Declarar método set para cada atributo.
+            Descricao getDescricao() const;        // Declarar método get para cada atributo.
 };
 
 inline void Usuario::setNome(const Nome &nome){
@@ -174,6 +178,14 @@ inline void Usuario::setAniversario(const Data &aniversario){
 
 inline Data Usuario::getAniversario() const{
     return aniversario;
+}
+
+inline void Usuario::setDescricao(const Descricao &descricao){
+    this->descricao = descricao;
+}
+
+inline Descricao Usuario::getDescricao() const{
+    return descricao;
 }
 
 #endif
