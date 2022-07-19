@@ -484,3 +484,59 @@ int TUAvaliacao::run(){
     tearDown();
     return estado;
 }
+
+
+
+const string TUHospedagem::VALOR_VALIDO_CODIGO = "12345678911";
+const string TUHospedagem::VALOR_VALIDO_CIDADE = "Londres";
+const string TUHospedagem::VALOR_VALIDO_PAIS = "Coreia do Sul";
+const string TUHospedagem::VALOR_VALIDO_NOTA = "5";
+const string TUHospedagem::VALOR_VALIDO_DESCRICAO = "Isso e uma descricao valida.";
+
+void TUHospedagem::setUp(){
+    hospedaem = new Hospedagem();
+    estado = SUCESSO;
+}
+
+void TUHospedagem::tearDown(){
+    delete hospedaem;
+}
+
+void TUHospedagem::testarCenarioSucesso(){
+    Codigo codigo;
+    codigo.setValor(VALOR_VALIDO_CODIGO);
+    hospedaem->setCodigo(codigo);
+    if(hospedaem->getCodigo().getValor() != VALOR_VALIDO_CODIGO)
+        estado = FALHA;
+
+    Cidade cidade;
+    cidade.setValor(VALOR_VALIDO_CIDADE);
+    hospedaem->setCidade(cidade);
+    if(hospedaem->getCidade().getValor() != VALOR_VALIDO_CIDADE)
+        estado = FALHA;
+
+    Pais Pais;
+    Pais.setValor(VALOR_VALIDO_PAIS);
+    hospedaem->setPais(Pais);
+    if(hospedaem->getPais().getValor() != VALOR_VALIDO_PAIS)
+        estado = FALHA;
+
+    Nota nota;
+    nota.setValor(VALOR_VALIDO_NOTA);
+    hospedaem->setNota(nota);
+    if(hospedaem->getNota().getValor() != VALOR_VALIDO_NOTA)
+        estado = FALHA;
+
+    Descricao descricao;
+    descricao.setValor(VALOR_VALIDO_DESCRICAO);
+    hospedaem->setDescricao(descricao);
+    if(hospedaem->getDescricao().getValor() != VALOR_VALIDO_DESCRICAO)
+        estado = FALHA;
+}
+
+int TUHospedagem::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}

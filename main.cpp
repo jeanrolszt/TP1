@@ -97,8 +97,6 @@ int main(){
     //Testes de unidade de entidades
 
     TUAvaliacao testeA;
-
-    // Invocar método e apresentar mensagem acerca do resultado do teste.
     cout<<"\nTESTE ENTIDADE Avaliacao\n";
     switch(testeA.run()){
         case TUAvaliacao::SUCESSO: cout << "SUCESSO" << endl;
@@ -107,5 +105,13 @@ int main(){
                                 break;
     }
 
-    return 0;
+    TUHospedagem testeB;
+    cout<<"\nTESTE ENTIDADE Hospedagem\n";
+    switch(testeB.run()){
+        case TUHospedagem::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUHospedagem::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+
 }
